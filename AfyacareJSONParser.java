@@ -148,26 +148,6 @@ public class AfyacareJSONParser {
                                         dob = val;
                                         break;
 
-                                    case "region":
-                                        region = val;
-                                        break;
-
-                                    case "council":
-                                        council = val;
-                                        break;
-
-                                    case "ward":
-                                        ward = val;
-                                        break;
-
-                                    case "village":
-                                        village = val;
-                                        break;
-
-                                    case "hamlet":
-                                        hamlet = val;
-                                        break;
-
                                     case "place_of_birth":
                                         place_of_birth = val;
                                         break;
@@ -194,6 +174,10 @@ public class AfyacareJSONParser {
 
                                     case "status":
                                         status = val;
+                                        break;
+
+                                    default:
+                                        // unlucky natural person
                                         break;
                                 }
                             }
