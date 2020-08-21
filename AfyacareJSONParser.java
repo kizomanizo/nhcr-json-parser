@@ -8,7 +8,6 @@ public class AfyacareJSONParser {
 
     StringBuilder recordRow = new StringBuilder();
     String returnRecordRow = "";
-        
     public String JSONtoTxt(String jsonObjectAsString) {
 
         try {
