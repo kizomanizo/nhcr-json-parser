@@ -8,43 +8,38 @@ public class AfyacareJSONParser {
 
     StringBuilder recordRow = new StringBuilder();
     String returnRecordRow = "";
-    public String JSONtoTxt(String jsonObjectAsString) {
+    public String jsonToString(String jsonObjectAsString) {
 
         try {
 
-            String SendingFacility = "";
-            String SendingApplication = "";
-            String ReceivingApplication = "";
-            String MessageTimestamp = "";
-            String PostorUpdate = "";
+            String messageTimestamp = "";
+            String postOrUpdate = "";
             String uuid = "";
-            String firstname = "";
-            String middlename = "";
-            String lastname = "";
-            String othername = "";
+            String firstName = "";
+            String middleName = "";
+            String lastName = "";
+            String otherName = "";
             String uln = "";
-            String national_id = "";
-            String voter_id = "";
-            String dl_id = "";
-            String nhif_id = "";
-            String ichf_id = "";
-            String rita_id = "";
-            String ctc_id = "";
-            String tb_id = "";
+            String nationalId = "";
+            String dlId = "";
+            String nhifId = "";
+            String ichfId = "";
+            String ctcId = "";
+            String tbId = "";
             String sex = "";
             String dob = "";
-            String region = "";
-            String council = "";
-            String ward = "";
-            String village = "";
-            String hamlet = "";
-            String place_of_birth = "";
-            String phone_prefix = "";
-            String phone_suffix = "";
-            String family_linkages = "";
-            String other_linkages = "";
-            String place_encountered = "";
-            String status = "";
+            String permanentRegion = "";
+            String permanentCouncil = "";
+            String permanentWard = "";
+            String permanentVillage = "";
+            String permanentHamlet = "";
+            String placeOfBirth = "";
+            String phonePrefix = "";
+            String phoneSuffix = "";
+            String familyLinkages = "";
+            String otherLinkages = "";
+            String placeEncountered = "";
+            String clientStatus = "";
 
             jsonObjectAsString = jsonObjectAsString.replace("{\"clients\":[", "").replace("]}", "");
             jsonObjectAsString = jsonObjectAsString.replace("},{", "}{");
@@ -63,24 +58,12 @@ public class AfyacareJSONParser {
                                 final String val = keyValuePair[1].replace("\"", "");
 
                                 switch (key) {
-                                    case "SendingFacility":
-                                        SendingFacility = val;
+                                    case "messagetimestamp":
+                                        messageTimestamp =  val;
                                         break;
 
-                                    case "SendingApplication":
-                                        SendingApplication = val;
-                                        break;
-
-                                    case "ReceivingApplication":
-                                        ReceivingApplication = val;
-                                        break;
-
-                                    case "MessageTimestamp":
-                                        MessageTimestamp = val;
-                                        break;
-
-                                    case "PostorUpdate":
-                                        PostorUpdate = val;
+                                    case "postorupdate":
+                                        postOrUpdate = val;
                                         break;
 
                                     case "uuid":
@@ -88,55 +71,47 @@ public class AfyacareJSONParser {
                                         break;
 
                                     case "firstname":
-                                        firstname = val;
+                                        firstName = val;
                                         break;
 
                                     case "middlename":
-                                        middlename = val;
+                                        middleName = val;
                                         break;
 
                                     case "lastname":
-                                        lastname = val;
+                                        lastName = val;
                                         break;
 
                                     case "othername":
-                                        othername = val;
+                                        otherName = val;
                                         break;
 
                                     case "uln":
                                         uln = val;
                                         break;
 
-                                    case "national_id":
-                                        national_id = val;
+                                    case "nationalid":
+                                        nationalId = val;
                                         break;
 
-                                    case "voter_id":
-                                        voter_id = val;
+                                    case "dlid":
+                                        dlId = val;
                                         break;
 
-                                    case "dl_id":
-                                        dl_id = val;
+                                    case "nhifid":
+                                        nhifId = val;
                                         break;
 
-                                    case "nhif_id":
-                                        nhif_id = val;
+                                    case "ichfid":
+                                        ichfId = val;
                                         break;
 
-                                    case "ichf_id":
-                                        ichf_id = val;
+                                    case "ctcid":
+                                        ctcId = val;
                                         break;
 
-                                    case "rita_id":
-                                        rita_id = val;
-                                        break;
-
-                                    case "ctc_id":
-                                        ctc_id = val;
-                                        break;
-
-                                    case "tb_id":
-                                        tb_id = val;
+                                    case "tbid":
+                                        tbId = val;
                                         break;
 
                                     case "sex":
@@ -147,76 +122,93 @@ public class AfyacareJSONParser {
                                         dob = val;
                                         break;
 
-                                    case "place_of_birth":
-                                        place_of_birth = val;
+                                    case "permanentregion":
+                                        permanentRegion = val;
                                         break;
 
-                                    case "phone_prefix":
-                                        phone_prefix = val;
+                                    case "permanentcouncil":
+                                        permanentCouncil = val;
                                         break;
 
-                                    case "phone_suffix":
-                                        phone_suffix = val;
+                                    case "permanentward":
+                                        permanentWard = val;
                                         break;
 
-                                    case "family_linkages":
-                                        family_linkages = val;
+                                    case "permanentvillage":
+                                        permanentVillage = val;
                                         break;
 
-                                    case "other_linkages":
-                                        other_linkages = val;
+                                    case "permanenthamlet":
+                                        permanentHamlet = val;
                                         break;
 
-                                    case "place_encountered":
-                                        place_encountered = val;
+                                    case "placeOfbirth":
+                                        placeOfBirth = val;
                                         break;
 
-                                    case "status":
-                                        status = val;
+                                    case "phoneprefix":
+                                        phonePrefix = val;
+                                        break;
+
+                                    case "phonesuffix":
+                                        phoneSuffix = val;
+                                        break;
+
+                                    case "familylinkages":
+                                        familyLinkages = val;
+                                        break;
+
+                                    case "otherlinkages":
+                                        otherLinkages = val;
+                                        break;
+
+                                    case "placeencountered":
+                                        placeEncountered = val;
+                                        break;
+
+                                    case "clientstatus":
+                                        clientStatus = val;
                                         break;
 
                                     default:
-                                        // unlucky natural person
+                                        // NHCR FTW
                                         break;
                                 }
                             }
                         }
 
-                        recordRow.append("")
-                            .append("|").append("AfyaCare Client Identification")
-                            .append("|").append(SendingFacility)
-                            .append("|").append(SendingApplication)
-                            .append("|").append(ReceivingApplication)
-                            .append("|").append(MessageTimestamp)
-                            .append("|").append(PostorUpdate)
+                        recordRow.append("Mirembe MHH")
+                            .append("|").append("AfyaCare Registered Clients")
+                            .append("|").append("AfyaCare EMR")
+                            .append("|").append(messageTimestamp)
+                            .append("|").append(postOrUpdate)
+                            .append("|").append("NHCR")
                             .append("|").append(uuid)
-                            .append("|").append(firstname)
-                            .append("|").append(middlename)
-                            .append("|").append(lastname)
-                            .append("|").append(othername)
-                            .append("|").append(uln)
-                            .append("|").append(national_id)
-                            .append("|").append(voter_id)
-                            .append("|").append(dl_id)
-                            .append("|").append(nhif_id)
-                            .append("|").append(ichf_id)
-                            .append("|").append(rita_id)
-                            .append("|").append(ctc_id)
-                            .append("|").append(tb_id)
+                            .append("|").append(firstName)
+                            .append("|").append(middleName)
+                            .append("|").append(lastName)
+                            .append("|").append(otherName)
                             .append("|").append(sex)
                             .append("|").append(dob)
-                            .append("|").append(region)
-                            .append("|").append(council)
-                            .append("|").append(ward)
-                            .append("|").append(village)
-                            .append("|").append(hamlet)
-                            .append("|").append(place_of_birth)
-                            .append("|").append(phone_prefix)
-                            .append("|").append(phone_suffix)
-                            .append("|").append(family_linkages)
-                            .append("|").append(other_linkages)
-                            .append("|").append(place_encountered)
-                            .append("|").append(status);
+                            .append("|").append(permanentRegion)
+                            .append("|").append(permanentCouncil)
+                            .append("|").append(permanentWard)
+                            .append("|").append(permanentVillage)
+                            .append("|").append(permanentHamlet)
+                            .append("|").append(clientStatus)
+                            .append("|").append(phonePrefix)
+                            .append("|").append(phoneSuffix)
+                            .append("|").append(familyLinkages)
+                            .append("|").append(otherLinkages)
+                            .append("|").append(placeEncountered)
+                            .append("|").append(placeOfBirth)
+                            .append("|").append(uln)
+                            .append("|").append(nationalId)
+                            .append("|").append(dlId)
+                            .append("|").append(nhifId)
+                            .append("|").append(ichfId)
+                            .append("|").append(ctcId)
+                            .append("|").append(tbId);
 
                         /* Add new line if there is another client in the array */
                         recordRow.append(System.getProperty("line.separator"));
